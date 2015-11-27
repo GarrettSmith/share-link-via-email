@@ -3,7 +3,7 @@
   "version": "1.0",
   "version_name": "BUTT2BUTT Edition",
   "description": "Adds a context menu item to send the page URL or a link via email",
-  "manifest_version": 1,
+  "manifest_version": 2,
   "icons": {
     "16": "stock_mail.png",
     "48": "stock_mail.png",
