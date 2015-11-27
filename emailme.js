@@ -59,9 +59,7 @@ var title;
 var id;
 
 // icon action
-chrome.browserAction.onClicked.addListener(function() {
-  createContext('Email', emailLink);
-});
+chrome.browserAction.onClicked.addListener(emailLink);
 // Create email menu option for each context type in this order
 //if (favoriteMailto === 'true') {
     //createContext('Email', emailLink);
@@ -83,9 +81,9 @@ chrome.browserAction.onClicked.addListener(function() {
 function getLink(info, tab) {
   if (info.linkUrl) {
 	// context if link
-	pageUrl = info.linkUrl;
+    pageUrl = info.linkUrl;
   } else {
-	pageUrl = tab.url;
+    pageUrl = info.url;
   }
   //pageUrl = encodeURIComponent(pageUrl);
   console.log("page url: " + pageUrl);

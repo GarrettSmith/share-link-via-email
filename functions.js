@@ -88,14 +88,14 @@ function get_options() {
     return mailOptions;
 }
 
-// use the saved values for the form 
+// use the saved values for the form
 function restore_options() {
-    // get saved values 
+    // get saved values
     var mailOptions = new Array();
     var mailOptionsLength = 5;
     var select, mailtype, toEmailAdd, beforeMsg, afterMsg;
     var newLineAfter, newLineAfterNum, newLineBefore, newLineBeforeNum;
-    
+
     mailOptions = get_options();
 
     // Restores check box state
@@ -150,7 +150,7 @@ function restore_options() {
 
     newLineBeforeNum = mailOptions["newLineBeforeNum"];
     $("#newLineBeforeNum").val(newLineBeforeNum);
-    
+
     toggle_newWindow_chbox();
 }
 
@@ -158,10 +158,10 @@ function restore_options() {
 // only email body section
 function save_body_options() {
 	var mail_to, mail_before, mail_after, newLineAfter, newLineBefore, newLineBeforeNum, status;
-	
+
     mail_to = $("#mail_to").val();
     localStorage["mail_to"] = mail_to;
-    
+
     mail_before = $("#mail_before").val();
     localStorage["mail_before"] = mail_before;
 
@@ -214,7 +214,7 @@ function save_sender_options() {
         child = $("#new_window_" + i);
         localStorage["new_window_" + i] = child.prop("checked");
     }
-    
+
     toggle_newWindow_chbox();
 
     // Update status to let user know options were saved.
@@ -341,6 +341,7 @@ function save_default_options() {
 function createEmailTab(info, tab, mailsrvr, newLineChar, newWindow) {
     var emailBody = "";
     var urlString = "";
+    var pageTitle = getTitle(info, tab);
     emailBody = createEmailMessage(info, tab, mailsrvr, newLineChar);
 
     urlString = mailsrvr+pageTitle+'&body='+emailBody;
@@ -391,7 +392,7 @@ function createEmailMessage(info, tab, mailsrvr, newLineChar) {
 function validate_body_options() {
 	var errorFound = false;
 	var currentItem;
-	
+
 	if ( $("#newLineAfter").prop("checked") ) {
 		currentItem = $("#newLineAfterNum");
 		if ( currentItem.val() < 0 ) {
@@ -414,7 +415,7 @@ function validate_body_options() {
 			errorFound = true;
 		}
 	}
-	
+
 	return errorFound;
 }
 
@@ -422,7 +423,7 @@ function validate_body_options() {
 function toggle_newWindow_chbox() {
 	var mailOptionsLength = 5;
 	var child;
-	
+
 	for (var i = 1; i <= mailOptionsLength; i++) {
 		child = localStorage["mail_picker_" + i];
 		if (child === 'false') {
