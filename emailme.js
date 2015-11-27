@@ -5,9 +5,9 @@ var firstRun = (localStorage['firstRun'] === 'true');
 // now save that first run has started
 if (!firstRun) {
   localStorage['firstRun'] = 'true';
-}  
+}
 // check if any settings have been saved
-if (!firstRun) { 
+if (!firstRun) {
     var mailOptionsLength = 5;
     for (var i = 0; i <= mailOptionsLength; i++) {
        if (localStorage["mail_picker_"+i] === 'true' || localStorage["mail_picker_"+i] === 'false' ) {
@@ -22,7 +22,7 @@ console.log("False if first time: " + firstRun);
 if (!firstRun) {
   // Set all options to default
   save_default_options();
-} 
+}
 
 // Get stored options
 mailOptions = new Array();
@@ -62,18 +62,18 @@ var id;
 if (favoriteMailto === 'true') {
     createContext('Email', emailLink);
 }
-if (favoriteAOL === 'true') {
-    createContext('AOL Mail', aolLink);
-}
-if (favoriteGmail === 'true') {
-    createContext('Gmail', gmailLink);
-}
-if (favoriteHotmail === 'true') {
-    createContext('Outlook.com', hotmailLink);
-}
-if (favoriteYmail === 'true') {
-    createContext('Yahoo! Mail', ymailLink);
-}
+//if (favoriteAOL === 'true') {
+    //createContext('AOL Mail', aolLink);
+//}
+//if (favoriteGmail === 'true') {
+    //createContext('Gmail', gmailLink);
+//}
+//if (favoriteHotmail === 'true') {
+    //createContext('Outlook.com', hotmailLink);
+//}
+//if (favoriteYmail === 'true') {
+    //createContext('Yahoo! Mail', ymailLink);
+//}
 
 // get link
 function getLink(info, tab) {
@@ -101,8 +101,8 @@ function emailLink(info, tab) {
     var newLineChar = '%0A';
     var newWindow = newWindowMailto;
     var mailTo = toEmailAdd;
-    
-    mailsrvr = 'mailto:' + mailTo + '?Subject=';    
+
+    mailsrvr = 'mailto:' + mailTo + '?Subject=';
     createEmailTab(info, tab, mailsrvr, newLineChar, newWindow);
 }
 
@@ -112,7 +112,7 @@ function gmailLink(info, tab) {
     var newLineChar = '%0A';
     var newWindow = newWindowGmail;
     var mailTo = toEmailAdd;
-    
+
     mailsrvr = 'https://mail.google.com/mail/?view=cm&fs=1&tf=1&=1&to=' + mailTo + '&su=';
     createEmailTab(info, tab, mailsrvr, newLineChar, newWindow);
 }
@@ -123,7 +123,7 @@ function hotmailLink(info, tab) {
     var newLineChar = '%0A';
     var newWindow = newWindowHotmail;
     var mailTo = toEmailAdd;
-    
+
     mailsrvr = 'http://mail.live.com/?rru=compose&to=' + mailTo + '&subject=';
     createEmailTab(info, tab, mailsrvr, newLineChar, newWindow);
 }
@@ -134,7 +134,7 @@ function ymailLink(info, tab) {
     var newLineChar = '%0A';
     var newWindow = newWindowYmail;
     var mailTo = toEmailAdd;
-    
+
     mailsrvr = 'http://compose.mail.yahoo.com?to=' + mailTo + '&subject=';
     //mailsrvr = 'https://us-mg40.mail.yahoo.com/neo/launch?action=compose&to=' + mailTo + '&subj=';
     createEmailTab(info, tab, mailsrvr, newLineChar, newWindow);
@@ -146,7 +146,7 @@ function aolLink(info, tab) {
     var newLineChar = '%20'; //using space
     var newWindow = newWindowAOL;
     var mailTo = toEmailAdd;
-    
+
     mailsrvr = 'https://mail.aol.com/mail/ComposeMessage.aspx?to=' + mailTo + '&subject=';
     createEmailTab(info, tab, mailsrvr, newLineChar, newWindow);
 }
