@@ -58,10 +58,14 @@ var context;
 var title;
 var id;
 
+// icon action
+chrome.browserAction.onClicked.addListener(function() {
+  createContext('Email', emailLink);
+});
 // Create email menu option for each context type in this order
-if (favoriteMailto === 'true') {
-    createContext('Email', emailLink);
-}
+//if (favoriteMailto === 'true') {
+    //createContext('Email', emailLink);
+//}
 //if (favoriteAOL === 'true') {
     //createContext('AOL Mail', aolLink);
 //}
