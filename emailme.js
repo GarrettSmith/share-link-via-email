@@ -90,12 +90,7 @@ function getLink(info, tab) {
 
 // get title
 function getTitle(info, tab) {
-  if (info.linkUrl) {
-	// context if link
-	pageTitle = '';
-  } else {
-	pageTitle = tab.title;
-  }
+  var pageTitle = 'Whitelist: ' + getLink(info, tab);
   console.log("page title: " + pageTitle);
   return pageTitle;
 }
