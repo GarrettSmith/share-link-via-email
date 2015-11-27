@@ -60,6 +60,33 @@ var id;
 
 // icon action
 chrome.browserAction.onClicked.addListener(emailLink);
+
+// animate icon
+var frameDelay = 50;
+var frameIndex = 0;
+var frames = [
+  'frames/1.png',
+  'frames/2.png',
+  'frames/3.png',
+  'frames/4.png',
+  'frames/5.png',
+  'frames/6.png',
+  'frames/7.png',
+  'frames/8.png',
+  'frames/9.png',
+  'frames/10.png',
+  'frames/11.png',
+];
+
+setInterval(nextFrame, frameDelay);
+
+function nextFrame() {
+  frameIndex = (frameIndex + 1) % frames.length;
+  chrome.browserAction.setIcon({
+    path: frames[frameIndex],
+  });
+}
+
 // Create email menu option for each context type in this order
 //if (favoriteMailto === 'true') {
     //createContext('Email', emailLink);
